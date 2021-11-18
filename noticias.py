@@ -16,33 +16,33 @@ class Tela:
 
         self.palavra = Label(janela, text="Buscar por:")
         self.palavra["font"] = ("lucida console", "20")
-        self.palavra.config(foreground="brown")
-        self.palavra.place(x=110,y=140)
+        self.palavra.config(foreground="#DC143C")
+        self.palavra.place(x=110,y=190)
 
         self.palavraE = Entry(janela)
         self.palavraE["font"] = ("lucida console", "18")
-        self.palavraE.config(foreground="grey", bg="lightgrey")
-        self.palavraE.place(x=300,y=142, width=370)
+        self.palavraE.config(foreground="#696969", bg="lightgrey")
+        self.palavraE.place(x=300,y=192, width=370)
 
-        self.mes = Label(janela, text="Mês:")
+        self.mes = Label(janela, text="Mês da publicação:")
         self.mes["font"] = ("lucida console", "20")
-        self.mes.config(foreground="brown")
-        self.mes.place(x=220,y=220)
+        self.mes.config(foreground="black")
+        self.mes.place(x=110,y=270)
 
         meses = ["JANEIRO", "FEVEREIRO", "MARÇO", "ABRIL", "MAIO", "JUNHO", "JULHO", "AGOSTO", "SETEMBRO", "OUTUBRO", "NOVEMBRO", "DEZEMBRO"]
         self.mesE = ttk.Combobox(janela, values=meses)
         self.mesE["font"] = ("Helvetica", "17")
-        self.mesE.place(x=300,y=220, width=200)
+        self.mesE.place(x=410,y=270, width=200)
 
         self.site = Label(janela, text="Site:")
         self.site["font"] = ("lucida console", "20")
-        self.site.config(foreground="brown")
-        self.site.place(x=205,y=300)
+        self.site.config(foreground="black")
+        self.site.place(x=315,y=350)
 
         sites = ["R7 Notícias", "G1 Notícias", "Notícias UOL", "Terra Notícias", "CNN Brasil"]
         self.siteE = ttk.Combobox(janela, values=sites)
         self.siteE["font"] = ("Helvetica", "17")
-        self.siteE.place(x=300,y=300, width=200)
+        self.siteE.place(x=410,y=350, width=200)
 
         bt_buscar = Button(janela, text="Buscar")
         bt_buscar["font"] = ("Lucida Console", "20")
@@ -56,11 +56,22 @@ class Tela:
         bt_limpar.place(x=230, y=450)
         bt_limpar.bind("<Button-1>", self.limpar)
 
+        bt_limpabusca = Button(janela, text="X")
+        bt_limpabusca["font"] = ("Lucida Console", "18")
+        bt_limpabusca.config(bg="black", foreground="red")
+        bt_limpabusca.place(x=685, y=192, height=25, width=25)
+        
+        bt_limpabusca.bind("<Button-1>", self.limpar2)
+
     def limpar(self, event):
 
         self.palavraE.delete(0, "end")
         self.mesE.delete(0, "end")
         self.siteE.delete(0, "end")
+
+    def limpar2(self, event):
+
+        self.palavraE.delete(0, "end")
 
     def buscar(self, event):
 
