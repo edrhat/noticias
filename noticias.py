@@ -14,52 +14,57 @@ class Tela:
         self.lb_cab.cab = cab
         self.lb_cab.place(x=0,y=0)
 
+        self.cab2 = Label(janela, text="Notícias Google")
+        self.cab2["font"] = ("roboto", "30", "italic")
+        self.cab2.config(foreground="#191970")
+        self.cab2.place(x=220,y=100)
+
         self.palavra = Label(janela, text="Buscar por:")
         self.palavra["font"] = ("lucida console", "20")
         self.palavra.config(foreground="#DC143C")
-        self.palavra.place(x=110,y=190)
+        self.palavra.place(x=110,y=210)
 
         self.palavraE = Entry(janela)
         self.palavraE["font"] = ("lucida console", "18")
         self.palavraE.config(foreground="#696969", bg="lightgrey")
-        self.palavraE.place(x=300,y=192, width=370)
+        self.palavraE.place(x=300,y=212, width=370)
 
         self.mes = Label(janela, text="Mês da publicação:")
         self.mes["font"] = ("lucida console", "20")
         self.mes.config(foreground="black")
-        self.mes.place(x=110,y=270)
+        self.mes.place(x=110,y=290)
 
         meses = ["JANEIRO", "FEVEREIRO", "MARÇO", "ABRIL", "MAIO", "JUNHO", "JULHO", "AGOSTO", "SETEMBRO", "OUTUBRO", "NOVEMBRO", "DEZEMBRO"]
         self.mesE = ttk.Combobox(janela, values=meses)
         self.mesE["font"] = ("Helvetica", "17")
-        self.mesE.place(x=410,y=270, width=200)
+        self.mesE.place(x=410,y=290, width=200)
 
         self.site = Label(janela, text="Site:")
         self.site["font"] = ("lucida console", "20")
         self.site.config(foreground="black")
-        self.site.place(x=315,y=350)
+        self.site.place(x=315,y=370)
 
         sites = ["R7 Notícias", "G1 Notícias", "Notícias UOL", "Terra Notícias", "CNN Brasil"]
         self.siteE = ttk.Combobox(janela, values=sites)
         self.siteE["font"] = ("Helvetica", "17")
-        self.siteE.place(x=410,y=350, width=200)
+        self.siteE.place(x=410,y=370, width=200)
 
         bt_buscar = Button(janela, text="Buscar")
         bt_buscar["font"] = ("Lucida Console", "20")
         bt_buscar.config(bg="green", foreground="white")
-        bt_buscar.place(x=440, y=450)
+        bt_buscar.place(x=410, y=470)
         bt_buscar.bind("<Button-1>", self.buscar)
 
         bt_limpar = Button(janela, text="Limpar")
         bt_limpar["font"] = ("Lucida Console", "20")
-        bt_limpar.config(bg="red", foreground="white")
-        bt_limpar.place(x=230, y=450)
+        bt_limpar.config(bg="brown", foreground="white")
+        bt_limpar.place(x=230, y=470)
         bt_limpar.bind("<Button-1>", self.limpar)
 
         bt_limpabusca = Button(janela, text="X")
         bt_limpabusca["font"] = ("Lucida Console", "18")
         bt_limpabusca.config(bg="black", foreground="red")
-        bt_limpabusca.place(x=685, y=192, height=25, width=25)
+        bt_limpabusca.place(x=685, y=212, height=25, width=25)
         
         bt_limpabusca.bind("<Button-1>", self.limpar2)
 
